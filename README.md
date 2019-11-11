@@ -1,11 +1,13 @@
 # General introduction
 This repository video-on-demand-on-aws-cn is used to made the video-on-demand-on-aws sample solutions workable in AWS China Region
-The original solution guide: https://docs.aws.amazon.com/solutions/latest/video-on-demand/overview.html
-An automated reference implementation leveraging AWS Step Functions and MediaConvert to deploy a scalable fault tolerant Video on demand workflow: https://aws.amazon.com/answers/media-entertainment/video-on-demand-on-aws/
+
+The original solution guide: https://docs.aws.amazon.com/solutions/latest/video-on-demand/overview.html. An automated reference implementation leveraging AWS Step Functions and MediaConvert to deploy a scalable fault tolerant Video on demand workflow: https://aws.amazon.com/answers/media-entertainment/video-on-demand-on-aws/
 
 # build package for china region steps
 ## clone git repository
+```
 git clone git@github.com:awslabs/video-on-demand-on-aws.git
+```
 
 ## Prepare the CloudFront Aliases (CNAME)
 In China region, when create a CloudFront distribution, you must specify a domain name with ICP recordal.
@@ -13,9 +15,13 @@ In China region, when create a CloudFront distribution, you must specify a domai
 ## Run the build-s3-dist.sh script, passing in 2 variables:
 ```
 1. Download the deployment/video-on-demand-on-aws-cn.yaml to TEMP_FOLDER
+
 2. cd video-on-demand-on-aws/deployment/
+
 3. mv video-on-demand-on-aws.yaml video-on-demand-on-aws-global.yaml 
+
 4. cp TEMP_FOLDER/video-on-demand-on-aws-cn.yaml video-on-demand-on-aws.yaml 
+
 5. ./build-s3-dist.sh CODEBUCKET CODEVERSION
 CODEBUCKET = the name of the S3 bucket in AWS Ningxia region
 CODEVERSION = this will be the subfolder containing the code (video-on-demand-on-aws/codeversion)
@@ -36,6 +42,8 @@ https://vod-mediaconvert-workshop-ray.s3.cn-northwest-1.amazonaws.com.cn/video-o
 2. Specify your parameters and create the stack
 3. Once the stack be executed successfully, record the outputs of stack
 
-Input example: 
+Input example:
+```
 CloudFront Alias: www.cf.ray-alb-webapp.top
 MediaConvertEndPoint url: https://7sq4jhzpb.mediaconvert.cn-northwest-1.amazonaws.com.cn
+```
